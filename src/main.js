@@ -148,7 +148,13 @@ app.innerHTML = `
         <p class="eyebrow">one last thing</p>
         <h2>Thanks for being<br><em>interesting.</em></h2>
         <p class="final-copy">This was never meant to answer the question of where we're going. I don't know yet either. I just know I'm curious enough to find out.</p>
-        <button class="keep-button" id="keepButton"><span>keep this little world</span> <iconify-icon icon="lucide:heart"></iconify-icon></button>
+        <div class="date-invitation reveal" id="dateInvitation">
+          <span class="date-invitation-kicker">and when everything is okay...</span>
+          <h3>I'll ask you<br><em>properly.</em></h3>
+          <p>Not rushed. Not squeezed between everything else. Just a proper date, planned with intention, when the timing is right.</p>
+          <div class="date-invitation-note">I hope you'll wait for me. ♡</div>
+          <button class="keep-button" id="keepButton"><span>save me a little spot</span> <iconify-icon icon="lucide:heart"></iconify-icon></button>
+        </div>
         <div class="madeby">made for Marang, by Theo <span>♡</span></div>
       </section>
     </main>
@@ -222,8 +228,10 @@ document.querySelectorAll('.garden-flower').forEach((el, i) => {
 });
 
 document.querySelector('#keepButton').addEventListener('click', () => {
+  document.querySelector('#dateInvitation')?.classList.add('saved');
   burstHearts(28);
   toast.classList.add('show');
+  toast.querySelector('span').textContent = '♡';
   setTimeout(() => toast.classList.remove('show'), 4200);
 });
 
