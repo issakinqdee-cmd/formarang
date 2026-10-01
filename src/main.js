@@ -79,11 +79,17 @@ app.innerHTML = `
             <h3>the writer thing</h3>
             <p>You called out my hyperboles before I had even finished being dramatic. I respected it.</p>
           </article>
-          <article class="obs-card featured reveal">
+          <button class="obs-card featured reveal sunflower-card" id="sunflowerCard">
             <div class="obs-num">03</div>
             <div class="tiny-flower-pair">${flower(assets.rose, 'rose')}${flower(assets.sunflower, 'sunflower')}</div>
             <h3>this one</h3>
             <p>I saw the sunflower and quietly decided it belonged somewhere in this story.</p>
+            <span class="sunflower-secret">tap me ♡</span>
+          </button>
+          <article class="obs-card quote-card reveal">
+            <div class="quote-mini">“</div>
+            <p>Apparently one conversation was enough for me to start making websites.</p>
+            <span>an entirely reasonable man</span>
           </article>
         </div>
       </section>
@@ -114,16 +120,12 @@ app.innerHTML = `
       <section class="unfinished" id="unfinished">
         <div class="section-tag">04 / almost a game</div>
         <div class="unfinished-card reveal">
-          <div class="unfinished-icon"><iconify-icon icon="lucide:gamepad-2"></iconify-icon></div>
+          <div class="unfinished-icon"><iconify-icon icon="lucide:sparkles"></iconify-icon></div>
           <div>
-            <p class="eyebrow">we never did get around to it</p>
-            <h2>That tiny game we were supposed to play.</h2>
-            <p>I decided not to turn this whole website into a tic-tac-toe tournament. You have enough unfinished business with me already. 😌</p>
-            <div class="mini-board" aria-label="A nod to the unfinished game">
-              <span>×</span><span>○</span><span>×</span>
-              <span>○</span><span>×</span><span>○</span>
-              <span>×</span><span>·</span><span>·</span>
-            </div>
+            <p class="eyebrow">one tiny loose end</p>
+            <h2>That little game we never got around to.</h2>
+            <p>I decided not to turn this whole website into a tic-tac-toe tournament. I would rather keep one tiny thing unfinished so we have an excuse to play when we actually link up.</p>
+            <div class="unfinished-note">P.S. I remember. 😌 ♡</div>
           </div>
         </div>
       </section>
@@ -177,6 +179,25 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, {threshold: 0.16});
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.obs-card').forEach(card => {
+  card.addEventListener('pointermove', (e) => {
+    const r = card.getBoundingClientRect();
+    const x = ((e.clientX-r.left)/r.width-.5)*2;
+    const y = ((e.clientY-r.top)/r.height-.5)*2;
+    card.style.setProperty('--tx', (y*-3.5).toFixed(2)+'deg');
+    card.style.setProperty('--ty', (x*3.5).toFixed(2)+'deg');
+  });
+  card.addEventListener('pointerleave', () => {
+    card.style.setProperty('--tx','0deg');
+    card.style.setProperty('--ty','0deg');
+  });
+});
+const sunflowerCard = document.querySelector('#sunflowerCard');
+sunflowerCard?.addEventListener('click', () => {
+  sunflowerCard.classList.toggle('revealed');
+  burstHearts(7);
+});
+
 
 const stage = document.querySelector('#gardenStage');
 stage.addEventListener('mousemove', (e) => {
