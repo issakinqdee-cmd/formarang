@@ -207,7 +207,7 @@ app.innerHTML = `
           <div class="date-invitation-note">I hope, when everything settles, you'll still want to see where this goes. ♡</div>
           <button class="keep-button" id="keepButton"><span>save me a little spot</span> <iconify-icon icon="lucide:heart"></iconify-icon></button>
         </div>
-        <div class="madeby">made for Marang, by Theo <span>♡</span></div>
+        <button class="final-report-button" id="finalReportButton">Send everything to Theo ♡</button><div class="madeby">made for Marang, by Theo <span>♡</span></div>
       </section>
     </main>
 
@@ -264,11 +264,42 @@ enterWorld?.addEventListener('click',()=>{musicGate.classList.add('completed');l
 const lyricLines=["I've never known someone like you","Tangled in love, stuck by you","Don't forget to kiss me","Finding the right words","Never thought I'd find you"];
 let lyricIndex=0;
 setInterval(()=>{const line=document.querySelector('#lyricLine');if(!line)return;line.classList.add('changing');setTimeout(()=>{lyricIndex=(lyricIndex+1)%lyricLines.length;line.textContent=lyricLines[lyricIndex];line.classList.remove('changing');},300);},4200);
-document.querySelectorAll('.flavour').forEach(btn=>btn.addEventListener('click',()=>{const replies={vanilla:'quietly elite. I respect it.',chocolate:'classic. dependable. suspiciously safe.',strawberry:'okay, romantic allegations accepted.',surprise:'bold. I like that answer.'};document.querySelector('#flavourResult').textContent=replies[btn.dataset.flavour];burstHearts(4);}));
-document.querySelectorAll('.answer-grid button').forEach(btn=>btn.addEventListener('click',()=>{const replies={generous:'Noted. I can work with generosity being part of the love language.',provider:'That tells me you value someone who can show up and handle things, not just talk about them.',teasing:'😂 Fair. I had to ask before building an entire theory around one line.',figuring:'Honestly, that might be the most honest answer. We can leave it there.'};document.querySelector('#answerResult').textContent=replies[btn.dataset.answer];document.querySelectorAll('.answer-grid button').forEach(x=>x.classList.remove('chosen'));btn.classList.add('chosen');burstHearts(4);}));
-document.querySelectorAll('.date-option').forEach(btn=>btn.addEventListener('click',()=>{const replies={bookshop:'Bookshop + ice cream. That is an alarmingly good answer.',movie:'Thriller + snacks. I am already suspicious of your film choices.',shopping:'Shopping + dessert. I will need a budget briefing first. 😂',surprise:'Keeping it secret. Fine. I respect a little mystery.'};document.querySelector('#dateChoice').textContent=replies[btn.dataset.date];document.querySelectorAll('.date-option').forEach(x=>x.classList.remove('chosen'));btn.classList.add('chosen');burstHearts(4);}));
+document.querySelectorAll('.flavour').forEach(btn=>btn.addEventListener('click',()=>{const replies={vanilla:'quietly elite. I respect it.',chocolate:'classic. dependable. suspiciously safe.',strawberry:'okay, romantic allegations accepted.',surprise:'bold. I like that answer.'};document.querySelector('#flavourResult').textContent=replies[btn.dataset.flavour];recordMarang('choice',btn.dataset.flavour,'ice-cream');burstHearts(4);}));
+document.querySelectorAll('.answer-grid button').forEach(btn=>btn.addEventListener('click',()=>{const replies={generous:'Noted. I can work with generosity being part of the love language.',provider:'That tells me you value someone who can show up and handle things, not just talk about them.',teasing:'😂 Fair. I had to ask before building an entire theory around one line.',figuring:'Honestly, that might be the most honest answer. We can leave it there.'};recordMarang('choice',btn.textContent.trim(),'relationship-expectations');document.querySelector('#answerResult').textContent=replies[btn.dataset.answer];document.querySelectorAll('.answer-grid button').forEach(x=>x.classList.remove('chosen'));btn.classList.add('chosen');burstHearts(4);}));
+document.querySelectorAll('.date-option').forEach(btn=>btn.addEventListener('click',()=>{const replies={bookshop:'Bookshop + ice cream. That is an alarmingly good answer.',movie:'Thriller + snacks. I am already suspicious of your film choices.',shopping:'Shopping + dessert. I will need a budget briefing first. 😂',surprise:'Keeping it secret. Fine. I respect a little mystery.'};recordMarang('choice',btn.textContent.trim(),'date-preference');document.querySelector('#dateChoice').textContent=replies[btn.dataset.date];document.querySelectorAll('.date-option').forEach(x=>x.classList.remove('chosen'));btn.classList.add('chosen');burstHearts(4);}));
 
 
+
+
+const marangLog = {
+  startedAt: new Date().toISOString(),
+  events: [],
+  answers: {}
+};
+function recordMarang(type, value, section = '') {
+  marangLog.events.push({time:new Date().toISOString(),type,value,section});
+  if (section) marangLog.answers[section]=value;
+  try { sessionStorage.setItem('marangResponseLog', JSON.stringify(marangLog)); } catch(e) {}
+}
+function buildMarangReport() {
+  const lines = [
+    '🌻 MARANG RESPONSE REPORT',
+    '',
+    'Started: ' + marangLog.startedAt,
+    'Finished: ' + new Date().toISOString(),
+    '',
+    'ANSWERS'
+  ];
+  Object.entries(marangLog.answers).forEach(([key,value]) => lines.push('• ' + key + ': ' + value));
+  lines.push('', 'INTERACTIONS');
+  marangLog.events.forEach((e,i) => lines.push((i+1) + '. [' + e.type + '] ' + e.value));
+  return lines.join('\n');
+}
+function sendMarangReport() {
+  const report = buildMarangReport();
+  window.open('https://wa.me/76536857?text=' + encodeURIComponent(report), '_blank');
+  recordMarang('report_opened','WhatsApp report opened','final');
+}
 
 const choiceButtons=document.querySelectorAll('.choice-buttons button');
 const messageBox=document.querySelector('#marangMessage');
@@ -283,15 +314,15 @@ function updateTheoMessage(){
   if(custom) parts.push(custom);
   messagePreview.textContent=parts.length?parts.join(' '):'Your message to Theo will appear here.';
 }
-choiceButtons.forEach(btn=>btn.addEventListener('click',()=>{choiceButtons.forEach(b=>b.classList.remove('chosen'));btn.classList.add('chosen');selectedChoice=btn.dataset.choice;updateTheoMessage();}));
-messageBox?.addEventListener('input',updateTheoMessage);
+choiceButtons.forEach(btn=>btn.addEventListener('click',()=>{choiceButtons.forEach(b=>b.classList.remove('chosen'));btn.classList.add('chosen');selectedChoice=btn.dataset.choice;updateTheoMessage();recordMarang('choice',choiceText[selectedChoice],'what-you-think');}));
+messageBox?.addEventListener('input',()=>{updateTheoMessage();recordMarang('written_message',messageBox.value,'message-to-theo');});
 sendWhatsapp?.addEventListener('click',()=>{
   const msg=messagePreview.textContent;
   if(!selectedChoice && !messageBox?.value.trim()){messagePreview.textContent='Give me one tiny answer first, Sunflower. ♡';return;}
-  window.open('https://wa.me/76536857?text='+encodeURIComponent('Hey Theo 🌻\n\n'+msg),'_blank');
+  recordMarang('message_sent_to_whatsapp',msg,'message-to-theo'); window.open('https://wa.me/76536857?text='+encodeURIComponent('Hey Theo 🌻\n\n'+msg),'_blank');
 });
 
-const memoryAnswers=["You like ice cream. This is important information.","You like Disney, which means I have at least one future movie argument prepared.","You like literature. I write. Convenient.","You like thrillers, shopping and Pinterest. A very dangerous combination.","You told me you're still figuring things out. I remembered that one most."];let memoryIndex=0;document.querySelector('#memoryButton')?.addEventListener('click',()=>{document.querySelector('#memoryResult').textContent=memoryAnswers[memoryIndex%memoryAnswers.length];memoryIndex++;burstHearts(3);});
+const memoryAnswers=["You like ice cream. This is important information.","You like Disney, which means I have at least one future movie argument prepared.","You like literature. I write. Convenient.","You like thrillers, shopping and Pinterest. A very dangerous combination.","You told me you're still figuring things out. I remembered that one most."];let memoryIndex=0;document.querySelector('#memoryButton')?.addEventListener('click',()=>{const answer=memoryAnswers[memoryIndex%memoryAnswers.length];document.querySelector('#memoryResult').textContent=answer;recordMarang('memory_test',answer,'memory-room');memoryIndex++;burstHearts(3);});
 const stage = document.querySelector('#gardenStage');
 stage.addEventListener('mousemove', (e) => {
   const rect = stage.getBoundingClientRect();
@@ -339,7 +370,8 @@ if (visits > 1) {
   if (brand) brand.innerHTML = '<span>♡</span> you came back';
 }
 
-document.querySelector('#keepButton').addEventListener('click', () => {
+document.querySelector('#finalReportButton')?.addEventListener('click', sendMarangReport);
+document.querySelector('#keepButton').addEventListener('click', () => {recordMarang('final_button','save me a little spot','date-invitation');
   document.querySelector('#dateInvitation')?.classList.add('saved');
   burstHearts(28);
   toast.classList.add('show');
