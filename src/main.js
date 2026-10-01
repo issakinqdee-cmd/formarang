@@ -24,7 +24,7 @@ app.innerHTML = `
       </button>
     </header>
 
-    <main>
+    <main><section class="music-gate" id="musicGate"><div class="gate-orbit"></div><div class="gate-copy"><p class="tiny-label">before you enter</p><h1>One song.<br><em>Then the rest.</em></h1><p>I wanted the first thing waiting for you to be something soft. Put this on, stay for a minute, then come see what I made.</p></div><div class="player-shell"><div class="player-top"><span>NOW PLAYING</span><span>♡</span></div><div class="player-body"><div class="record"><div class="record-label">GS</div></div><div class="track-info"><span class="track-kicker">a little soundtrack</span><h2>Glue Song</h2><p>beabadoobee</p><div class="fake-progress"><i></i></div><div class="player-time"><span>soft</span><span>♡</span></div></div></div><div class="spotify-frame gate-spotify"><iframe title="Glue Song by beabadoobee on Spotify" src="https://open.spotify.com/embed/track/3iBgrkexCzVuPy4O9vx7Mf?utm_source=generator&theme=0&autoplay=1" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="eager"></iframe></div></div><div class="lyric-window" id="lyricWindow"><div class="lyric-label"><span>LYRIC WINDOW</span><span>♡</span></div><div class="lyric-line" id="lyricLine">a little song about closeness, softness, and finding something that feels easy</div><div class="lyric-credit">lyric mood, not a transcript ♡</div></div><button class="enter-button" id="enterWorld">I'm listening. Let me in <span>→</span></button><p class="gate-note">The rest stays locked until you press this. I wanted you to actually start with the song.</p></section>
       <section class="door" id="door">
         <div class="door-orbit orbit-1"></div>
         <div class="door-orbit orbit-2"></div>
@@ -61,21 +61,14 @@ app.innerHTML = `
       </section>
 
       
-<section class="soundtrack" id="soundtrack">
-  <div class="section-tag">01.5 / press play, maybe</div>
-  <div class="soundtrack-card reveal">
-    <div class="soundtrack-copy">
-      <p class="eyebrow">the song I put here</p>
-      <h2>A little <em>Glue Song.</em></h2>
-      <p>Not because I'm trying to make this more dramatic than it is. I just thought it sounded like the right kind of soft.</p>
-      <span class="soundtrack-caption">you can blame Spotify for the rest ♡</span>
-    </div>
-    <div class="spotify-frame">
-      <iframe title="Glue Song by beabadoobee on Spotify" src="https://open.spotify.com/embed/track/3iBgrkexCzVuPy4O9vx7Mf?utm_source=generator&theme=0" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-  </div>
-</section>
-<section class="noticed" id="noticed">
+
+<section class="chapter-divider"><span>then I started noticing things</span><b>02</b></section>
+<section class="likes" id="likes"><div class="section-tag">02 / the Marang index</div><div class="likes-head reveal"><p class="eyebrow">things I have filed away</p><h2>Apparently you<br><em>have a whole universe.</em></h2><p>Literature. Disney. Thrillers. Shopping. Pinterest. Ice cream. I am collecting evidence at an alarming rate.</p></div><div class="likes-grid"><article class="like-card reveal"><span>BOOKS</span><iconify-icon icon="lucide:book-open"></iconify-icon><h3>literature</h3><p>Which makes me wonder what kind of stories you keep returning to when nobody is asking.</p></article><article class="like-card reveal"><span>SCREEN</span><iconify-icon icon="lucide:clapperboard"></iconify-icon><h3>thrillers</h3><p>Noted. Movie night now has a minimum level of suspense.</p></article><article class="like-card reveal"><span>MAGIC</span><iconify-icon icon="lucide:sparkles"></iconify-icon><h3>Disney</h3><p>So apparently there is room for a little magic and a little nonsense too.</p></article><article class="like-card reveal"><span>MOODBOARD</span><iconify-icon icon="lucide:images"></iconify-icon><h3>Pinterest</h3><p>I already know one day you are going to show me a board and expect me to understand the assignment.</p></article></div></section>
+<section class="icecream" id="icecream"><div class="section-tag">03 / scientifically important</div><div class="icecream-layout"><div class="reveal"><p class="eyebrow">one undeniable compatibility test</p><h2>We both like<br><em>ice cream.</em></h2><p class="body-copy">This may be the most convincing evidence that the universe knows what it is doing.</p><span class="scribble">peer reviewed by absolutely nobody</span></div><div class="flavour-machine reveal" id="flavourMachine"><div class="machine-top">ICE CREAM DEPARTMENT <span>♡</span></div><button class="flavour" data-flavour="vanilla">01 <strong>Vanilla</strong><small>quietly elite</small></button><button class="flavour" data-flavour="chocolate">02 <strong>Chocolate</strong><small>classic behaviour</small></button><button class="flavour" data-flavour="strawberry">03 <strong>Strawberry</strong><small>romantic allegations</small></button><button class="flavour" data-flavour="surprise">04 <strong>Surprise me</strong><small>dangerous answer</small></button><div class="flavour-result" id="flavourResult">Pick one. I will pretend this doesn't tell me anything.</div></div></div></section>
+<section class="conversation" id="conversation"><div class="section-tag">04 / the receipts</div><div class="conversation-head reveal"><p class="eyebrow">things you actually said</p><h2>You ask<br><em>good questions.</em></h2><p>Not the kind you answer once and forget. The kind that make me explain myself.</p></div><div class="chat-stack"><div class="chat-bubble mar reveal"><span>Marang</span>“You're an author? You're not one of those tortured ones are you”</div><div class="chat-bubble theo reveal"><span>Theo</span>“I'm a lot of things.”</div><div class="chat-bubble mar reveal"><span>Marang</span>“How does one get into debt without realizing?”</div><div class="chat-bubble theo reveal"><span>Theo</span>“Long story short...”</div><div class="chat-bubble mar reveal"><span>Marang</span>“And you didn't say please.”</div><div class="chat-bubble theo reveal"><span>Theo</span>“I please.”</div><div class="chat-bubble mar reveal"><span>Marang</span>“You please?”</div><div class="chat-bubble theo reveal"><span>Theo</span>“Exactly.”</div></div><div class="conversation-foot reveal">That exchange still makes me laugh. You have a talent for making me explain myself.</div></section>
+<section class="figuring" id="figuring"><div class="figuring-inner"><div class="reveal"><p class="eyebrow">05 / the line that stayed with me</p><h2>“I'm still<br><em>figuring things out.</em>”</h2></div><div class="figuring-note reveal"><p>That is probably the most useful thing you could have told me.</p><p>Not because I need an answer from you right now. I don't. I just like knowing what is actually happening in your head, even when the honest answer is “I don't know yet.”</p><p>So this site isn't a proposal. It is me leaving the door open and seeing what happens.</p></div></div></section>
+<section class="question" id="question"><div class="question-card reveal"><p class="eyebrow">06 / one thing I genuinely want to know</p><h2>When you said<br>“what about giving me money?”</h2><p class="question-intro">Were you teasing me, or were you quietly telling me something about the kind of relationship you want?</p><div class="answer-grid"><button data-answer="generous">I like a generous man.</button><button data-answer="provider">I want someone who can take care of things.</button><button data-answer="teasing">I was just teasing you 😂</button><button data-answer="figuring">Honestly, I'm still figuring that out too.</button></div><div class="answer-result" id="answerResult">Choose whichever is closest. No wrong answer.</div></div></section>
+<section class="disney" id="disney"><div class="disney-card reveal"><div class="magic-stars">✦ · ✧ · ✦</div><p class="eyebrow">07 / one future excuse</p><h2>Disney is involved<br>somehow.</h2><p>Which is convenient because “we should watch something” is an extremely sophisticated excuse to spend time together.</p><div class="movie-ticket"><span>ADMIT ONE</span><strong>MARANG</strong><small>one future movie night</small><b>♡</b></div></div></section><section class="noticed" id="noticed">
         <div class="section-tag">02 / little observations</div>
         <div class="section-title reveal">
           <p class="eyebrow">I noticed a few things</p>
@@ -165,7 +158,7 @@ app.innerHTML = `
     <p id="noteText"></p>
   </div>
 </section>
-<section class="date" id="date">
+<section class="date-menu" id="dateMenu"><div class="section-tag">10 / hypothetical, obviously</div><div class="date-menu-head reveal"><p class="eyebrow">if you were planning it</p><h2>What would<br><em>you pick?</em></h2><p>I already know I want ice cream involved. The rest is negotiable.</p></div><div class="date-options"><button class="date-option reveal" data-date="bookshop"><span>01</span><strong>Bookshop + ice cream</strong><small>dangerously on brand</small></button><button class="date-option reveal" data-date="movie"><span>02</span><strong>Thriller + snacks</strong><small>you choose the film, I judge</small></button><button class="date-option reveal" data-date="shopping"><span>03</span><strong>Shopping + dessert</strong><small>I carry the bags, allegedly</small></button><button class="date-option reveal" data-date="surprise"><span>04</span><strong>Don't tell me yet</strong><small>let me figure it out</small></button></div><div class="date-choice" id="dateChoice">Your future itinerary is currently blank. Suspicious.</div></section><section class="date" id="date">
         <div class="section-tag">05 / the actual plan</div>
         <div class="date-stage reveal">
           <div class="floating-petal p1">♡</div><div class="floating-petal p2">✦</div><div class="floating-petal p3">♡</div>
@@ -187,7 +180,7 @@ app.innerHTML = `
           <span class="date-invitation-kicker">and when everything is okay...</span>
           <h3>I'll ask you<br><em>properly.</em></h3>
           <p>Not rushed. Not squeezed between everything else. Just a proper date, planned with intention, when the timing is right.</p>
-          <div class="date-invitation-note">I hope you'll wait for me. ♡</div>
+          <div class="date-invitation-note">I hope, when everything settles, you'll still want to see where this goes. ♡</div>
           <button class="keep-button" id="keepButton"><span>save me a little spot</span> <iconify-icon icon="lucide:heart"></iconify-icon></button>
         </div>
         <div class="madeby">made for Marang, by Theo <span>♡</span></div>
@@ -238,6 +231,17 @@ sunflowerCard?.addEventListener('click', () => {
   sunflowerCard.classList.toggle('revealed');
   burstHearts(7);
 });
+const enterWorld=document.querySelector('#enterWorld');
+const musicGate=document.querySelector('#musicGate');
+const lockedSections=[...document.querySelectorAll('main > section:not(#musicGate)')];
+lockedSections.forEach(section=>section.classList.add('site-locked'));
+enterWorld?.addEventListener('click',()=>{musicGate.classList.add('completed');lockedSections.forEach(section=>section.classList.remove('site-locked'));document.body.classList.add('story-open');setTimeout(()=>document.querySelector('#door')?.scrollIntoView({behavior:'smooth',block:'start'}),450);burstHearts(14);});
+const lyricLines=['a little song about closeness, softness, and finding something that feels easy','the kind of feeling that makes ordinary moments feel closer','something warm, simple, and slightly ridiculous','the part where the whole room feels a little quieter','soft enough to leave room for whatever happens next'];
+let lyricIndex=0;
+setInterval(()=>{const line=document.querySelector('#lyricLine');if(!line)return;line.classList.add('changing');setTimeout(()=>{lyricIndex=(lyricIndex+1)%lyricLines.length;line.textContent=lyricLines[lyricIndex];line.classList.remove('changing');},300);},4200);
+document.querySelectorAll('.flavour').forEach(btn=>btn.addEventListener('click',()=>{const replies={vanilla:'quietly elite. I respect it.',chocolate:'classic. dependable. suspiciously safe.',strawberry:'okay, romantic allegations accepted.',surprise:'bold. I like that answer.'};document.querySelector('#flavourResult').textContent=replies[btn.dataset.flavour];burstHearts(4);}));
+document.querySelectorAll('.answer-grid button').forEach(btn=>btn.addEventListener('click',()=>{const replies={generous:'Noted. I can work with generosity being part of the love language.',provider:'That tells me you value someone who can show up and handle things, not just talk about them.',teasing:'😂 Fair. I had to ask before building an entire theory around one line.',figuring:'Honestly, that might be the most honest answer. We can leave it there.'};document.querySelector('#answerResult').textContent=replies[btn.dataset.answer];document.querySelectorAll('.answer-grid button').forEach(x=>x.classList.remove('chosen'));btn.classList.add('chosen');burstHearts(4);}));
+document.querySelectorAll('.date-option').forEach(btn=>btn.addEventListener('click',()=>{const replies={bookshop:'Bookshop + ice cream. That is an alarmingly good answer.',movie:'Thriller + snacks. I am already suspicious of your film choices.',shopping:'Shopping + dessert. I will need a budget briefing first. 😂',surprise:'Keeping it secret. Fine. I respect a little mystery.'};document.querySelector('#dateChoice').textContent=replies[btn.dataset.date];document.querySelectorAll('.date-option').forEach(x=>x.classList.remove('chosen'));btn.classList.add('chosen');burstHearts(4);}));
 
 
 const stage = document.querySelector('#gardenStage');
