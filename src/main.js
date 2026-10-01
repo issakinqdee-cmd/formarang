@@ -264,9 +264,9 @@ document.querySelectorAll('.garden-flower').forEach((el, i) => {
 
 
 const noteCopy = {
-  'when-bored': ['for when you're bored', 'I was going to make this a whole game. Then I remembered you already tolerate enough of my nonsense. So here is your official reminder that I am, in fact, still funny. Probably.'],
-  'when-curious': ['for when you're curious', 'I like you. That is the uncomplicated part. The complicated part is figuring out what you think while I pretend I am completely normal about it.'],
-  'when-smiling': ['for when you're smiling', 'Keep that. Seriously. I have not even taken you on the proper date yet and I am already campaigning for more of that smile.'],
+  'when-bored': ["for when you're bored", 'I was going to make this a whole game. Then I remembered you already tolerate enough of my nonsense. So here is your official reminder that I am, in fact, still funny. Probably.'],
+  'when-curious': ["for when you're curious", 'I like you. That is the uncomplicated part. The complicated part is figuring out what you think while I pretend I am completely normal about it.'],
+  'when-smiling': ["for when you're smiling", 'Keep that. Seriously. I have not even taken you on the proper date yet and I am already campaigning for more of that smile.'],
   'when-late': ['for when it is late', 'Maybe this is infatuation. Maybe it is timing. Maybe the universe has terrible scheduling but surprisingly good taste. Either way, goodnight, Marang. ♡']
 };
 document.querySelectorAll('.open-when').forEach(btn => {
