@@ -69,7 +69,7 @@ app.innerHTML = `
 <section class="figuring" id="figuring"><div class="figuring-inner"><div class="reveal"><p class="eyebrow">05 / the line that stayed with me</p><h2>“I'm still<br><em>figuring things out.</em>”</h2></div><div class="figuring-note reveal"><p>That is probably the most useful thing you could have told me.</p><p>Not because I need an answer from you right now. I don't. I just like knowing what is actually happening in your head, even when the honest answer is “I don't know yet.”</p><p>So this site isn't a proposal. It is me leaving the door open and seeing what happens.</p></div></div></section>
 <section class="question" id="question"><div class="question-card reveal"><p class="eyebrow">06 / one thing I genuinely want to know</p><h2>When you said<br>“what about giving me money?”</h2><p class="question-intro">Were you teasing me, or were you quietly telling me something about the kind of relationship you want?</p><div class="answer-grid"><button data-answer="generous">I like a generous man.</button><button data-answer="provider">I want someone who can take care of things.</button><button data-answer="teasing">I was just teasing you 😂</button><button data-answer="figuring">Honestly, I'm still figuring that out too.</button></div><div class="answer-result" id="answerResult">Choose whichever is closest. No wrong answer.</div></div></section>
 <section class="disney" id="disney"><div class="disney-card reveal"><div class="magic-stars">✦ · ✧ · ✦</div><p class="eyebrow">07 / one future excuse</p><h2>Disney is involved<br>somehow.</h2><p>Which is convenient because “we should watch something” is an extremely sophisticated excuse to spend time together.</p><div class="movie-ticket"><span>ADMIT ONE</span><strong>MARANG</strong><small>one future movie night</small><b>♡</b></div></div></section><section class="noticed" id="noticed">
-        <div class="section-tag">02 / little observations</div>
+        <div class="section-tag">03 / little observations</div>
         <div class="section-title reveal">
           <p class="eyebrow">I noticed a few things</p>
           <h2>Not <span>everything.</span><br>Just enough.</h2>
@@ -104,7 +104,7 @@ app.innerHTML = `
 
       <section class="garden" id="garden">
         <div class="garden-sky"></div>
-        <div class="section-tag">03 / a little garden</div>
+        <div class="section-tag">09 / a little garden</div>
         <div class="garden-copy reveal">
           <p class="eyebrow">hover around</p>
           <h2>There had to be<br><em>flowers</em> somewhere.</h2>
@@ -126,7 +126,7 @@ app.innerHTML = `
       </section>
 
       <section class="unfinished" id="unfinished">
-        <div class="section-tag">04 / almost a game</div>
+        <div class="section-tag">10 / almost a game</div>
         <div class="unfinished-card reveal">
           <div class="unfinished-icon"><iconify-icon icon="lucide:sparkles"></iconify-icon></div>
           <div>
@@ -140,7 +140,7 @@ app.innerHTML = `
 
       
 <section class="archive" id="archive">
-  <div class="section-tag">04.5 / don't open everything at once</div>
+  <div class="section-tag">11 / don't open everything at once</div>
   <div class="archive-head reveal">
     <p class="eyebrow">a small collection of things I haven't said yet</p>
     <h2>Open one.<br><em>Then another.</em></h2>
@@ -159,7 +159,7 @@ app.innerHTML = `
   </div>
 </section>
 <section class="date-menu" id="dateMenu"><div class="section-tag">10 / hypothetical, obviously</div><div class="date-menu-head reveal"><p class="eyebrow">if you were planning it</p><h2>What would<br><em>you pick?</em></h2><p>I already know I want ice cream involved. The rest is negotiable.</p></div><div class="date-options"><button class="date-option reveal" data-date="bookshop"><span>01</span><strong>Bookshop + ice cream</strong><small>dangerously on brand</small></button><button class="date-option reveal" data-date="movie"><span>02</span><strong>Thriller + snacks</strong><small>you choose the film, I judge</small></button><button class="date-option reveal" data-date="shopping"><span>03</span><strong>Shopping + dessert</strong><small>I carry the bags, allegedly</small></button><button class="date-option reveal" data-date="surprise"><span>04</span><strong>Don't tell me yet</strong><small>let me figure it out</small></button></div><div class="date-choice" id="dateChoice">Your future itinerary is currently blank. Suspicious.</div></section><section class="date" id="date">
-        <div class="section-tag">05 / the actual plan</div>
+        <div class="section-tag">13 / the actual plan</div>
         <div class="date-stage reveal">
           <div class="floating-petal p1">♡</div><div class="floating-petal p2">✦</div><div class="floating-petal p3">♡</div>
           <div class="date-kicker">not cancelled. just postponed.</div>
