@@ -37,7 +37,7 @@ app.innerHTML = `
           <div class="envelope-flap"></div>
           <div class="envelope-body"></div>
           <div class="seal"><span>♡</span></div>
-          <div class="envelope-label">open me</div>
+          <div class="envelope-label"><strong>Marang</strong><span>open me ♡</span></div>
         </button>
         <div class="scroll-hint">tap the envelope <span>↓</span></div>
       </section>
@@ -60,7 +60,22 @@ app.innerHTML = `
         </div>
       </section>
 
-      <section class="noticed" id="noticed">
+      
+<section class="soundtrack" id="soundtrack">
+  <div class="section-tag">01.5 / press play, maybe</div>
+  <div class="soundtrack-card reveal">
+    <div class="soundtrack-copy">
+      <p class="eyebrow">the song I put here</p>
+      <h2>A little <em>Glue Song.</em></h2>
+      <p>Not because I'm trying to make this more dramatic than it is. I just thought it sounded like the right kind of soft.</p>
+      <span class="soundtrack-caption">you can blame Spotify for the rest ♡</span>
+    </div>
+    <div class="spotify-frame">
+      <iframe title="Glue Song by beabadoobee on Spotify" src="https://open.spotify.com/embed/track/3iBgrkexCzVuPy4O9vx7Mf?utm_source=generator&theme=0" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+<section class="noticed" id="noticed">
         <div class="section-tag">02 / little observations</div>
         <div class="section-title reveal">
           <p class="eyebrow">I noticed a few things</p>
@@ -130,7 +145,27 @@ app.innerHTML = `
         </div>
       </section>
 
-      <section class="date" id="date">
+      
+<section class="archive" id="archive">
+  <div class="section-tag">04.5 / don't open everything at once</div>
+  <div class="archive-head reveal">
+    <p class="eyebrow">a small collection of things I haven't said yet</p>
+    <h2>Open one.<br><em>Then another.</em></h2>
+    <p>There are no wrong answers. Some are sweet. One is mildly incriminating.</p>
+  </div>
+  <div class="open-when-grid">
+    <button class="open-when reveal" data-note="when-bored"><span>01</span><strong>open when you're bored</strong><small>there is something stupid in here</small></button>
+    <button class="open-when reveal" data-note="when-curious"><span>02</span><strong>open when you're curious</strong><small>about what I'm thinking</small></button>
+    <button class="open-when reveal" data-note="when-smiling"><span>03</span><strong>open when you're smiling</strong><small>don't ruin it, just read this</small></button>
+    <button class="open-when reveal" data-note="when-late"><span>04</span><strong>open when it's late</strong><small>this one is quieter</small></button>
+  </div>
+  <div class="note-reveal" id="noteReveal" aria-live="polite">
+    <span class="note-close" id="noteClose">×</span>
+    <p class="eyebrow" id="noteEyebrow"></p>
+    <p id="noteText"></p>
+  </div>
+</section>
+<section class="date" id="date">
         <div class="section-tag">05 / the actual plan</div>
         <div class="date-stage reveal">
           <div class="floating-petal p1">♡</div><div class="floating-petal p2">✦</div><div class="floating-petal p3">♡</div>
@@ -226,6 +261,31 @@ document.querySelectorAll('.garden-flower').forEach((el, i) => {
     burstHearts(3 + (i % 3));
   });
 });
+
+
+const noteCopy = {
+  'when-bored': ['for when you're bored', 'I was going to make this a whole game. Then I remembered you already tolerate enough of my nonsense. So here is your official reminder that I am, in fact, still funny. Probably.'],
+  'when-curious': ['for when you're curious', 'I like you. That is the uncomplicated part. The complicated part is figuring out what you think while I pretend I am completely normal about it.'],
+  'when-smiling': ['for when you're smiling', 'Keep that. Seriously. I have not even taken you on the proper date yet and I am already campaigning for more of that smile.'],
+  'when-late': ['for when it is late', 'Maybe this is infatuation. Maybe it is timing. Maybe the universe has terrible scheduling but surprisingly good taste. Either way, goodnight, Marang. ♡']
+};
+document.querySelectorAll('.open-when').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const [label, note] = noteCopy[btn.dataset.note];
+    document.querySelector('#noteEyebrow').textContent = label;
+    document.querySelector('#noteText').textContent = note;
+    document.querySelector('#noteReveal').classList.add('show');
+    burstHearts(5);
+  });
+});
+document.querySelector('#noteClose')?.addEventListener('click', () => document.querySelector('#noteReveal').classList.remove('show'));
+
+const visits = Number(localStorage.getItem('marangVisits') || 0) + 1;
+localStorage.setItem('marangVisits', visits);
+if (visits > 1) {
+  const brand = document.querySelector('.brand');
+  if (brand) brand.innerHTML = '<span>♡</span> you came back';
+}
 
 document.querySelector('#keepButton').addEventListener('click', () => {
   document.querySelector('#dateInvitation')?.classList.add('saved');
