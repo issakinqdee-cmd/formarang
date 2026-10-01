@@ -1,5 +1,3 @@
-import './style.css';
-
 const flower = (src, alt, cls = '') => { const fb = src.includes('1F339') ? '/fallback/rose.svg' : src.includes('1F33B') ? '/fallback/sunflower.svg' : src.includes('1F337') ? '/fallback/tulip.svg' : '/fallback/rose.svg'; return `<img class="${cls}" src="${src}" data-fallback="${fb}" alt="${alt}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src=this.dataset.fallback" />`; };
 
 const assets = {
